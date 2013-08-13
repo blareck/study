@@ -86,11 +86,13 @@ public class SingleFileHTTPServer extends Thread
 	public static void main(String[] args){
 		try
 		{
+			String _args0 = "D:\\test.html";
+			//args[1] = "9999";
 			String contentType  = "text/plain";
-			if(args[0].endsWith(".html")||args[0].endsWith(".htm")){
+			if(_args0.endsWith(".html")||_args0.endsWith(".htm")){
 				contentType = "text/html";
 			}
-			InputStream in = new FileInputStream(args[0]);
+			InputStream in = new FileInputStream(_args0);
 			ByteArrayOutputStream out = new ByteArrayOutputStream();
 			int b;
 			while((b = in.read()) != -1){
