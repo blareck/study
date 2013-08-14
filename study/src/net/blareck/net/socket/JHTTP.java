@@ -40,16 +40,14 @@ public class JHTTP extends Thread
 	public void run(){
 		ExecutorService threadPool  = Executors.newScheduledThreadPool(numberThreads);
 		for(int i = 0; i<numberThreads; i ++){
-			threadPool.submit(new Runnable(){
-				public void run(){}
-			});
+			threadPool.submit(new  RequestProcessor(this.documentRootDirectory,this.indexFileName));
 		}
 		System.out.println("Accepting connections on port" + this.server.getLocalPort());
 		System.out.println("Document Root : " +documentRootDirectory);
 		while(true){
 			try{
 				Socket request = this.server.accept();
-				
+				RequestProcessor.processRequest(request);
 			}
 			catch(IOException e){
 				e.printStackTrace();
