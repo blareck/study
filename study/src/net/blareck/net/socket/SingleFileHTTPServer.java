@@ -24,10 +24,7 @@ public class SingleFileHTTPServer extends Thread
 	private byte[] header;
 	private int port = 80;
 	
-	private SingleFileHTTPServer(){
-		new SingleFileHTTPServer();
-	}
-	
+
 	public SingleFileHTTPServer(String data,String encoding,String MIMEType,int port) throws UnsupportedEncodingException{
 		this(data.getBytes(encoding),encoding,MIMEType,port);
 	}
